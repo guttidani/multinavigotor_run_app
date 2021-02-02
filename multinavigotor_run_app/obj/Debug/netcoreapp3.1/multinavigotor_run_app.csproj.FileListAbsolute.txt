@@ -1,0 +1,15 @@
+C:\Users\GuttiDani\source\repos\multinavigotor_run_app\multinavigotor_run_app\bin\Debug\netcoreapp3.1\multinavigotor_run_app.exe
+C:\Users\GuttiDani\source\repos\multinavigotor_run_app\multinavigotor_run_app\bin\Debug\netcoreapp3.1\multinavigotor_run_app.deps.json
+C:\Users\GuttiDani\source\repos\multinavigotor_run_app\multinavigotor_run_app\bin\Debug\netcoreapp3.1\multinavigotor_run_app.runtimeconfig.json
+C:\Users\GuttiDani\source\repos\multinavigotor_run_app\multinavigotor_run_app\bin\Debug\netcoreapp3.1\multinavigotor_run_app.runtimeconfig.dev.json
+C:\Users\GuttiDani\source\repos\multinavigotor_run_app\multinavigotor_run_app\bin\Debug\netcoreapp3.1\multinavigotor_run_app.dll
+C:\Users\GuttiDani\source\repos\multinavigotor_run_app\multinavigotor_run_app\bin\Debug\netcoreapp3.1\multinavigotor_run_app.pdb
+C:\Users\GuttiDani\source\repos\multinavigotor_run_app\multinavigotor_run_app\obj\Debug\netcoreapp3.1\multinavigotor_run_app.csprojAssemblyReference.cache
+C:\Users\GuttiDani\source\repos\multinavigotor_run_app\multinavigotor_run_app\obj\Debug\netcoreapp3.1\multinavigotor_run_app.Form1.resources
+C:\Users\GuttiDani\source\repos\multinavigotor_run_app\multinavigotor_run_app\obj\Debug\netcoreapp3.1\multinavigotor_run_app.csproj.GenerateResource.cache
+C:\Users\GuttiDani\source\repos\multinavigotor_run_app\multinavigotor_run_app\obj\Debug\netcoreapp3.1\multinavigotor_run_app.AssemblyInfoInputs.cache
+C:\Users\GuttiDani\source\repos\multinavigotor_run_app\multinavigotor_run_app\obj\Debug\netcoreapp3.1\multinavigotor_run_app.AssemblyInfo.cs
+C:\Users\GuttiDani\source\repos\multinavigotor_run_app\multinavigotor_run_app\obj\Debug\netcoreapp3.1\multinavigotor_run_app.csproj.CoreCompileInputs.cache
+C:\Users\GuttiDani\source\repos\multinavigotor_run_app\multinavigotor_run_app\obj\Debug\netcoreapp3.1\multinavigotor_run_app.dll
+C:\Users\GuttiDani\source\repos\multinavigotor_run_app\multinavigotor_run_app\obj\Debug\netcoreapp3.1\multinavigotor_run_app.pdb
+C:\Users\GuttiDani\source\repos\multinavigotor_run_app\multinavigotor_run_app\obj\Debug\netcoreapp3.1\multinavigotor_run_app.genruntimeconfig.cache
