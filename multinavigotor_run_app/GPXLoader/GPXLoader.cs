@@ -126,7 +126,7 @@ namespace multinavigotor_run_app.GPXLoader
                         trk.Name, trkSeg.Latitude, trkSeg.Longitude, trkSeg.Elevation, trkSeg.Time));
                 }
             }
-
+            double _eleDif = FindMaxEle(tracksAsList)-FindMinEle(tracksAsList);
             string _runnerName = getNameFromFileName(Path.GetFileName(sFile));
             TimeSpan _duration = tracksAsList.Last().Time - tracksAsList.First().Time;
 
@@ -135,14 +135,14 @@ namespace multinavigotor_run_app.GPXLoader
                 Name = _runnerName,
                 DateofRunning = tracksAsList.First().Time.Date,
                 RunTime = Convert.ToDateTime(_duration.ToString()),
-                Elevation = CountEleDif(tracksAsList)
+                Elevation = _eleDif
             };
 
-            Console.WriteLine("Dif Ele: {0}", CountEleDif(tracksAsList));
-            Console.WriteLine("Max Ele: {0} - Min Ele: {1}", FindMaxEle(tracksAsList), FindMinEle(tracksAsList));
-            Console.WriteLine("Name: {0}, Duration: {1}", _runnerName, tracksAsList.Last().Time - tracksAsList.First().Time);
-            Console.WriteLine("Name: {0}, Duration: {1}", _runnerName, _duration);
-            Console.WriteLine("tracksAsList.First().Time.Day: " + tracksAsList.First().Time.Date);
+            //Console.WriteLine("Dif Ele: {0}", _eledif));
+            //Console.WriteLine("Max Ele: {0} - Min Ele: {1} - Dif ele: {2}", FindMaxEle(tracksAsList), FindMinEle(tracksAsList),_eleDif);
+            //Console.WriteLine("Name: {0}, Duration: {1}", _runnerName, tracksAsList.Last().Time - tracksAsList.First().Time);
+            //Console.WriteLine("Name: {0}, Duration: {1}", _runnerName, _duration);
+            //Console.WriteLine("tracksAsList.First().Time.Day: " + tracksAsList.First().Time.Date);
 
             return sb.ToString();
             //return trackAsList; // Return as List
@@ -180,7 +180,7 @@ namespace multinavigotor_run_app.GPXLoader
         }
 
         /// <summary>
-        /// It find the max elevation in the list
+        /// Count the dif of max and min elevation
         /// </summary>
         /// <param name="list"></param>
         /// <returns></returns>
@@ -207,6 +207,11 @@ namespace multinavigotor_run_app.GPXLoader
             return difEle;
         }
 
+        /// <summary>
+        /// Find the maximum elevation in the list
+        /// </summary>
+        /// <param name="list"></param>
+        /// <returns>the maximum of the elevation</returns>
         public double FindMaxEle(List<TrackDto> list)
         {
             if (list.Count == 0)
@@ -224,6 +229,11 @@ namespace multinavigotor_run_app.GPXLoader
             return maxEle;
         }
 
+        /// <summary>
+        /// Find the minimum elevation in the list
+        /// </summary>
+        /// <param name="list"></param>
+        /// <returns>the minimum of the elevation</returns>
         public double FindMinEle(List<TrackDto> list)
         {
             if (list.Count == 0)
