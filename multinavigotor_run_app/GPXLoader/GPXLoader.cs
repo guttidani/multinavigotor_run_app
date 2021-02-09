@@ -6,9 +6,16 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Xml.Linq;
+using Geolocation;
 
 namespace multinavigotor_run_app.GPXLoader
 {
+
+    /// <summary>
+    /// egy két methodot atrakni külön classba
+    /// </summary>
+
+
     public class GPXLoader
     {
         /// <summary>
@@ -33,76 +40,32 @@ namespace multinavigotor_run_app.GPXLoader
         }
 
         /// <summary>
-        /// When passed a file, open it and parse all waypoints from it.
-        /// </summary>
-        /// <param name="sFile">Fully qualified file name (local)</param>
-        /// <returns>string containing line delimited waypoints from
-        /// the file (for test)</returns>
-        /// <remarks>Normally, this would be used to populate the
-        /// appropriate object model</remarks>
-        public string LoadGPXWaypoints(string sFile)
-        {
-            XDocument gpxDoc = GetGpxDoc(sFile);
-            XNamespace gpx = GetGpxNameSpace();
-
-            var waypoints = from waypoint in gpxDoc.Descendants(gpx + "wpt")
-                            select new
-                            {
-                                Latitude = waypoint.Attribute("lat").Value,
-                                Longitude = waypoint.Attribute("lon").Value,
-                                Elevation = waypoint.Element(gpx + "ele") != null ?
-                                  waypoint.Element(gpx + "ele").Value : null,
-                                Name = waypoint.Element(gpx + "name") != null ?
-                                  waypoint.Element(gpx + "name").Value : null,
-                                Dt = waypoint.Element(gpx + "cmt") != null ?
-                                  waypoint.Element(gpx + "cmt").Value : null
-                            };
-
-            StringBuilder sb = new StringBuilder();
-            foreach (var wpt in waypoints)
-            {
-                // This is where we'd instantiate data
-                // containers for the information retrieved.
-                sb.Append(
-                  string.Format("Name:{0} Latitude:{1} Longitude:{2} Elevation:{3} Date:{4}\n",
-                  wpt.Name, wpt.Latitude, wpt.Longitude,
-                  wpt.Elevation, wpt.Dt));
-            }
-
-            return sb.ToString();
-        }
-
-        //public static List<TrackDto> tracksAsList = new List<TrackDto>();
-
-        /// <summary>
         /// When passed a file, open it and parse all tracks
         /// and track segments from it.
         /// </summary>
         /// <param name="sFile">Fully qualified file name (local)</param>
         /// <returns>string containing line delimited waypoints from the
         /// file (for test)</returns>
-        public string LoadGPXTracks(string sFile)
+        public List<TrackDto> LoadGPXTracks(string sFile)
         {
             XDocument gpxDoc = GetGpxDoc(sFile);
             XNamespace gpx = GetGpxNameSpace();
+            RunnerDataProcessing rdp = new RunnerDataProcessing();
             var tracks = from track in gpxDoc.Descendants(gpx + "trk")
                          select new
                          {
                              Name = track.Element(gpx + "name") != null ?
                             track.Element(gpx + "name").Value : null,
-                             Segs = (
-                                from trackpoint in track.Descendants(gpx + "trkpt")
-                                select new
-                                {
-                                    Latitude = trackpoint.Attribute("lat").Value,
-                                    Longitude = trackpoint.Attribute("lon").Value,
-                                    Elevation = trackpoint.Element(gpx + "ele") != null ? trackpoint.Element(gpx + "ele").Value : null,
-                                    Time = trackpoint.Element(gpx + "time") != null ? trackpoint.Element(gpx + "time").Value : null
-                                }
-                              )
+                             Segs = (from trackpoint in track.Descendants(gpx + "trkpt")
+                                     select new
+                                     {
+                                         Latitude = trackpoint.Attribute("lat").Value,
+                                         Longitude = trackpoint.Attribute("lon").Value,
+                                         Elevation = trackpoint.Element(gpx + "ele") != null ? trackpoint.Element(gpx + "ele").Value : null,
+                                         Time = trackpoint.Element(gpx + "time") != null ? trackpoint.Element(gpx + "time").Value : null
+                                     })
                          };
 
-            StringBuilder sb = new StringBuilder();
             List<TrackDto> tracksAsList = new List<TrackDto>();
 
             foreach (var trk in tracks)
@@ -110,145 +73,41 @@ namespace multinavigotor_run_app.GPXLoader
                 // Populate track data objects.
                 foreach (var trkSeg in trk.Segs)
                 {
-                    // Populate detailed track segments
-                    // in the object model here.
                     TrackDto trackDto = new TrackDto
                     {
                         Latitude = double.Parse(trkSeg.Latitude, System.Globalization.CultureInfo.InvariantCulture),
                         Longitude = double.Parse(trkSeg.Longitude, System.Globalization.CultureInfo.InvariantCulture),
+                        Coordinate = new Coordinate(double.Parse(trkSeg.Latitude, System.Globalization.CultureInfo.InvariantCulture), double.Parse(trkSeg.Longitude, System.Globalization.CultureInfo.InvariantCulture)),
                         Elevation = double.Parse(trkSeg.Elevation, System.Globalization.CultureInfo.InvariantCulture),
                         Time = convertIsoToDateTime(trkSeg.Time)
                     };
-
                     tracksAsList.Add(trackDto);
-                    sb.Append(
-                      string.Format("Track:{0} - Latitude:{1} Longitude:{2} " + "Elevation:{3} Date:{4}\n",
-                        trk.Name, trkSeg.Latitude, trkSeg.Longitude, trkSeg.Elevation, trkSeg.Time));
                 }
             }
-            double _eleDif = FindMaxEle(tracksAsList)-FindMinEle(tracksAsList);
-            string _runnerName = getNameFromFileName(Path.GetFileName(sFile));
-            TimeSpan _duration = tracksAsList.Last().Time - tracksAsList.First().Time;
 
+            #region MakeNewRunner
             Runner runner = new Runner
             {
-                Name = _runnerName,
+                Name = rdp.getNameFromFileName(Path.GetFileName(sFile)),
                 DateofRunning = tracksAsList.First().Time.Date,
-                RunTime = Convert.ToDateTime(_duration.ToString()),
-                Elevation = _eleDif
+                RunTime = Convert.ToDateTime((tracksAsList.Last().Time - tracksAsList.First().Time).ToString()),
+                ElevationUp = rdp.ElevationUp(tracksAsList),
+                ElevationDown = rdp.ElevationDown(tracksAsList),
+                Distance = rdp.CountDistance(tracksAsList) / 1000
             };
+            #endregion
 
-            //Console.WriteLine("Dif Ele: {0}", _eledif));
-            //Console.WriteLine("Max Ele: {0} - Min Ele: {1} - Dif ele: {2}", FindMaxEle(tracksAsList), FindMinEle(tracksAsList),_eleDif);
-            //Console.WriteLine("Name: {0}, Duration: {1}", _runnerName, tracksAsList.Last().Time - tracksAsList.First().Time);
-            //Console.WriteLine("Name: {0}, Duration: {1}", _runnerName, _duration);
-            //Console.WriteLine("tracksAsList.First().Time.Day: " + tracksAsList.First().Time.Date);
-
-            return sb.ToString();
-            //return trackAsList; // Return as List
+            return tracksAsList; // Return as List
         }
 
         /// <summary>
         /// It is a string to DateTime converter (yyyy-MM-dd'T'HH:mm:ss'Z')
         /// </summary>
-        /// <param name="iso"></param>
+        /// <param name="iso">Time in string (yyyy-MM-dd'T'HH:mm:ss'Z')</param>
         /// <returns>DateTime (yyyy-MM-dd'T'HH:mm:ss'Z') </returns>
         public DateTime convertIsoToDateTime(string iso)
         {
             return DateTime.ParseExact(iso, "yyyy-MM-dd'T'HH:mm:ss.fff'Z'", CultureInfo.InvariantCulture);
-        }
-
-        /// <summary>
-        /// split the file name to get the runner name Example for a file name: Daniel_Smith_2020-08-15_13-08-53.GPX
-        /// </summary>
-        /// <param name="_fileName"></param>
-        /// <returns>The name of the runner</returns>
-        public string getNameFromFileName(string _fileName)
-        {
-            string[] _split = _fileName.Split('_');
-            string runnerName = null;
-
-            for (int i = 0; i < 2; i++)
-            {
-                runnerName += _split[i];
-                if (i == 0)
-                {
-                    runnerName += " ";
-                }
-            }
-            return runnerName;
-        }
-
-        /// <summary>
-        /// Count the dif of max and min elevation
-        /// </summary>
-        /// <param name="list"></param>
-        /// <returns></returns>
-        public double CountEleDif(List<TrackDto> list)
-        {
-            if (list.Count == 0)
-            {
-                throw new InvalidOperationException("Empty list");
-            }
-            double maxEle = double.MinValue;
-            double minEle = 333.0;
-            double difEle = maxEle - minEle;
-            foreach (TrackDto type in list)
-            {
-                if (type.Elevation > maxEle)
-                {
-                    maxEle = type.Elevation;
-                }
-                if (type.Elevation < minEle)
-                {
-                    minEle = type.Elevation;
-                }
-            }
-            return difEle;
-        }
-
-        /// <summary>
-        /// Find the maximum elevation in the list
-        /// </summary>
-        /// <param name="list"></param>
-        /// <returns>the maximum of the elevation</returns>
-        public double FindMaxEle(List<TrackDto> list)
-        {
-            if (list.Count == 0)
-            {
-                throw new InvalidOperationException("Empty list");
-            }
-            double maxEle = double.MinValue;
-            foreach (TrackDto type in list)
-            {
-                if (type.Elevation > maxEle)
-                {
-                    maxEle = type.Elevation;
-                }
-            }
-            return maxEle;
-        }
-
-        /// <summary>
-        /// Find the minimum elevation in the list
-        /// </summary>
-        /// <param name="list"></param>
-        /// <returns>the minimum of the elevation</returns>
-        public double FindMinEle(List<TrackDto> list)
-        {
-            if (list.Count == 0)
-            {
-                throw new InvalidOperationException("Empty list");
-            }
-            double minEle = 333.0;
-            foreach (TrackDto type in list)
-            {
-                if (type.Elevation < minEle)
-                {
-                    minEle = type.Elevation;
-                }
-            }
-            return minEle;
         }
     }
 }

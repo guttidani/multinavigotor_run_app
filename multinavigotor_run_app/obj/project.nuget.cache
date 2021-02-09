@@ -1,8 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "BtxrVE1bbr91D+F1d3y9PEsaephyzzdV807LrmBGAitQ30goVgl0fNmGoEh22NEohTirQ3WPAK0T0+KUkEEGSg==",
+  "dgSpecHash": "LNsuSNUYXbHYug6WFPQyfs91Ph/GoEKyYp4MmQdS4MIHr/uEk2l0aV4DNUVTh8Yxv1o+FKS0TlgsKfCdU3uqEA==",
   "success": true,
   "projectFilePath": "C:\\Users\\GuttiDani\\source\\repos\\multinavigotor_run_app\\multinavigotor_run_app\\multinavigotor_run_app.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\GuttiDani\\.nuget\\packages\\geolocation\\1.2.1\\geolocation.1.2.1.nupkg.sha512"
+  ],
   "logs": []
 }

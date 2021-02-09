@@ -7,11 +7,14 @@ namespace multinavigotor_run_app.GPXLoader
     class Runner
     {
         public int Id { get; set; }
+        public bool Gender { get; set; }
         public String Name { get; set; }
         public double Distance { get; set; }
-        public double Elevation { get; set; }
+        public double ElevationUp { get; set; }
+        public double ElevationDown { get; set; }
         public DateTime RunTime { get; set; }
         public DateTime DateofRunning { get; set; }
+
         private static int _id = 1;
 
         public Runner()
