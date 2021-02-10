@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using Geolocation;
 
@@ -19,7 +20,7 @@ namespace multinavigotor_run_app
             {
                 distance += GeoCalculator.GetDistance(list[i - 1].Coordinate, list[i].Coordinate, distanceUnit: DistanceUnit.Meters); //mindig 0át ad vissza
             }
-
+            
             return distance;
         }
 
@@ -82,6 +83,15 @@ namespace multinavigotor_run_app
                 }
             }
             return runnerName;
+        }
+
+        public string RunningTimeCount(List<TrackDto> list)
+        {
+            //DateTime kulonbseg = list.Last().Time.Subtract(list.First().Time);
+
+            string runninnTime = Convert.ToDateTime((list.Last().Time - list.First().Time).ToString()).ToString("HH:mm:ss");
+            
+            return runninnTime;
         }
     }
 }

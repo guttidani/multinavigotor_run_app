@@ -31,29 +31,46 @@ namespace multinavigotor_run_app
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
-            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.treeView1 = new System.Windows.Forms.TreeView();
+            this.openFileDialogNewRunner = new System.Windows.Forms.OpenFileDialog();
+            this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.file_btn = new System.Windows.Forms.ToolStripDropDownButton();
             this.new_race_btn = new System.Windows.Forms.ToolStripMenuItem();
             this.new_runner_btn = new System.Windows.Forms.ToolStripMenuItem();
             this.save_race_btn = new System.Windows.Forms.ToolStripMenuItem();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.treeView1 = new System.Windows.Forms.TreeView();
-            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
-            this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.load_race_btn = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStrip1.SuspendLayout();
+            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // toolStrip1
+            // dataGridView1
             // 
-            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.file_btn});
-            this.toolStrip1.Location = new System.Drawing.Point(0, 0);
-            this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(800, 25);
-            this.toolStrip1.TabIndex = 0;
-            this.toolStrip1.Text = "toolStrip1";
+            this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(139, 28);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.RowTemplate.Height = 25;
+            this.dataGridView1.Size = new System.Drawing.Size(649, 410);
+            this.dataGridView1.TabIndex = 1;
+            // 
+            // treeView1
+            // 
+            this.treeView1.Location = new System.Drawing.Point(12, 28);
+            this.treeView1.Name = "treeView1";
+            this.treeView1.Size = new System.Drawing.Size(121, 104);
+            this.treeView1.TabIndex = 2;
+            // 
+            // openFileDialogNewRunner
+            // 
+            this.openFileDialogNewRunner.FileName = "openFileDialog1";
+            // 
+            // saveFileDialog1
+            // 
+            this.saveFileDialog1.FileOk += new System.ComponentModel.CancelEventHandler(this.saveFileDialog1_FileOk);
             // 
             // file_btn
             // 
@@ -80,6 +97,7 @@ namespace multinavigotor_run_app
             this.new_runner_btn.Name = "new_runner_btn";
             this.new_runner_btn.Size = new System.Drawing.Size(136, 22);
             this.new_runner_btn.Text = "New runner";
+            this.new_runner_btn.Click += new System.EventHandler(this.new_runner_btn_Click);
             // 
             // save_race_btn
             // 
@@ -87,35 +105,25 @@ namespace multinavigotor_run_app
             this.save_race_btn.Size = new System.Drawing.Size(136, 22);
             this.save_race_btn.Text = "Save race";
             // 
-            // dataGridView1
-            // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(454, 138);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowTemplate.Height = 25;
-            this.dataGridView1.Size = new System.Drawing.Size(240, 210);
-            this.dataGridView1.TabIndex = 1;
-            // 
-            // treeView1
-            // 
-            this.treeView1.Location = new System.Drawing.Point(12, 28);
-            this.treeView1.Name = "treeView1";
-            this.treeView1.Size = new System.Drawing.Size(121, 104);
-            this.treeView1.TabIndex = 2;
-            // 
-            // openFileDialog1
-            // 
-            this.openFileDialog1.FileName = "openFileDialog1";
-            // 
-            // saveFileDialog1
-            // 
-            this.saveFileDialog1.FileOk += new System.ComponentModel.CancelEventHandler(this.saveFileDialog1_FileOk);
-            // 
             // load_race_btn
             // 
             this.load_race_btn.Name = "load_race_btn";
             this.load_race_btn.Size = new System.Drawing.Size(136, 22);
             this.load_race_btn.Text = "Load race";
+            // 
+            // toolStrip1
+            // 
+            this.toolStrip1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.toolStrip1.Dock = System.Windows.Forms.DockStyle.None;
+            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.file_btn});
+            this.toolStrip1.Location = new System.Drawing.Point(0, 0);
+            this.toolStrip1.Name = "toolStrip1";
+            this.toolStrip1.Size = new System.Drawing.Size(50, 25);
+            this.toolStrip1.TabIndex = 0;
+            this.toolStrip1.Text = "toolStrip1";
             // 
             // Form1
             // 
@@ -127,26 +135,25 @@ namespace multinavigotor_run_app
             this.Controls.Add(this.toolStrip1);
             this.Name = "Form1";
             this.Text = "Form1";
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private ToolStrip toolStrip1;
+        private DataGridView dataGridView1;
+        private TreeView treeView1;
+        private OpenFileDialog openFileDialogNewRunner;
+        private SaveFileDialog saveFileDialog1;
         private ToolStripDropDownButton file_btn;
         private ToolStripMenuItem new_race_btn;
         private ToolStripMenuItem new_runner_btn;
         private ToolStripMenuItem save_race_btn;
-        private DataGridView dataGridView1;
-        private TreeView treeView1;
-        private OpenFileDialog openFileDialog1;
-        private SaveFileDialog saveFileDialog1;
         private ToolStripMenuItem load_race_btn;
+        private ToolStrip toolStrip1;
     }
 }
 

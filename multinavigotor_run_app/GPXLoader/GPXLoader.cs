@@ -1,4 +1,4 @@
-﻿using multinavigotor_run_app.GPXLoader;
+﻿//using multinavigotor_run_app.GPXLoader;
 using System;
 using System.Collections.Generic;
 using System.Globalization;
@@ -8,7 +8,7 @@ using System.Text;
 using System.Xml.Linq;
 using Geolocation;
 
-namespace multinavigotor_run_app.GPXLoader
+namespace multinavigotor_run_app
 {
 
     /// <summary>
@@ -84,19 +84,6 @@ namespace multinavigotor_run_app.GPXLoader
                     tracksAsList.Add(trackDto);
                 }
             }
-
-            #region MakeNewRunner
-            Runner runner = new Runner
-            {
-                Name = rdp.getNameFromFileName(Path.GetFileName(sFile)),
-                DateofRunning = tracksAsList.First().Time.Date,
-                RunTime = Convert.ToDateTime((tracksAsList.Last().Time - tracksAsList.First().Time).ToString()),
-                ElevationUp = rdp.ElevationUp(tracksAsList),
-                ElevationDown = rdp.ElevationDown(tracksAsList),
-                Distance = rdp.CountDistance(tracksAsList) / 1000
-            };
-            #endregion
-
             return tracksAsList; // Return as List
         }
 
