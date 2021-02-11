@@ -87,11 +87,7 @@ namespace multinavigotor_run_app
 
         public string RunningTimeCount(List<TrackDto> list)
         {
-            //DateTime kulonbseg = list.Last().Time.Subtract(list.First().Time);
-
-            string runninnTime = Convert.ToDateTime((list.Last().Time - list.First().Time).ToString()).ToString("HH:mm:ss");
-            
-            return runninnTime;
+            return Convert.ToDateTime((list.Last().Time - list.First().Time).ToString()).ToString("HH:mm:ss");
         }
     }
 }

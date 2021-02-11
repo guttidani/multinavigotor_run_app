@@ -5,7 +5,6 @@ C:\Users\GuttiDani\source\repos\multinavigotor_run_app\multinavigotor_run_app\bi
 C:\Users\GuttiDani\source\repos\multinavigotor_run_app\multinavigotor_run_app\bin\Debug\netcoreapp3.1\multinavigotor_run_app.dll
 C:\Users\GuttiDani\source\repos\multinavigotor_run_app\multinavigotor_run_app\bin\Debug\netcoreapp3.1\multinavigotor_run_app.pdb
 C:\Users\GuttiDani\source\repos\multinavigotor_run_app\multinavigotor_run_app\obj\Debug\netcoreapp3.1\multinavigotor_run_app.csprojAssemblyReference.cache
-C:\Users\GuttiDani\source\repos\multinavigotor_run_app\multinavigotor_run_app\obj\Debug\netcoreapp3.1\multinavigotor_run_app.Form1.resources
 C:\Users\GuttiDani\source\repos\multinavigotor_run_app\multinavigotor_run_app\obj\Debug\netcoreapp3.1\multinavigotor_run_app.csproj.GenerateResource.cache
 C:\Users\GuttiDani\source\repos\multinavigotor_run_app\multinavigotor_run_app\obj\Debug\netcoreapp3.1\multinavigotor_run_app.AssemblyInfoInputs.cache
 C:\Users\GuttiDani\source\repos\multinavigotor_run_app\multinavigotor_run_app\obj\Debug\netcoreapp3.1\multinavigotor_run_app.AssemblyInfo.cs
@@ -17,3 +16,6 @@ C:\Users\GuttiDani\source\repos\multinavigotor_run_app\multinavigotor_run_app\bi
 C:\Users\GuttiDani\source\repos\multinavigotor_run_app\multinavigotor_run_app\bin\Debug\netcoreapp3.1\trackek\csobot_ati_test.gpx
 C:\Users\GuttiDani\source\repos\multinavigotor_run_app\multinavigotor_run_app\bin\Debug\netcoreapp3.1\Geolocation.dll
 C:\Users\GuttiDani\source\repos\multinavigotor_run_app\multinavigotor_run_app\obj\Debug\netcoreapp3.1\multinavigotor_run_app.csproj.CopyComplete
+C:\Users\GuttiDani\source\repos\multinavigotor_run_app\multinavigotor_run_app\obj\Debug\netcoreapp3.1\multinavigotor_run_app.MainForm.resources
+C:\Users\GuttiDani\source\repos\multinavigotor_run_app\multinavigotor_run_app\obj\Debug\netcoreapp3.1\multinavigotor_run_app.NewRaceForm.resources
+C:\Users\GuttiDani\source\repos\multinavigotor_run_app\multinavigotor_run_app\obj\Debug\netcoreapp3.1\multinavigotor_run_app.NewRunnerForm.resources

@@ -7,29 +7,20 @@ using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 
 namespace multinavigotor_run_app
 {
-    public partial class Form1 : Form
+    public partial class NewRunnerForm : Form
     {
-        public Form1()
+        public NewRunnerForm()
         {
             InitializeComponent();
         }
 
-
-
-        private void saveFileDialog1_FileOk(object sender, CancelEventArgs e)
+        private void button1_Click(object sender, EventArgs e)
         {
-
-        }
-
-        private void new_runner_btn_Click(object sender, EventArgs e)
-        {
-
             GPXLoader gpxLoad = new GPXLoader();
             RunnerDataProcessing rdp = new RunnerDataProcessing();
             openFileDialogNewRunner.Filter = "GPX |*.gpx";
@@ -42,16 +33,18 @@ namespace multinavigotor_run_app
                 Name = rdp.getNameFromFileName(Path.GetFileName(fileName)),
                 DateofRunning = tracks.First().Time.Date,
                 RunTime = rdp.RunningTimeCount(tracks),
-                ElevationUp = rdp.ElevationUp(tracks),
-                ElevationDown = rdp.ElevationDown(tracks),
-                Distance = Math.Round((rdp.CountDistance(tracks) / 1000),2)
+                ElevationUp = Math.Round(rdp.ElevationUp(tracks)),
+                ElevationDown = Math.Round(rdp.ElevationDown(tracks)),
+                Distance = Math.Round((rdp.CountDistance(tracks) / 1000), 2)
             };
 
             RunnerPersistency.runnersList.Add(runner);
+            
+        }
 
-            dataGridView1.DataSource = RunnerPersistency.runnersList;
+        private void backBtn_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }
-
-

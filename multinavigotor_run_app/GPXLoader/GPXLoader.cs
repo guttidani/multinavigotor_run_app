@@ -94,7 +94,7 @@ namespace multinavigotor_run_app
         /// <returns>DateTime (yyyy-MM-dd'T'HH:mm:ss'Z') </returns>
         public DateTime convertIsoToDateTime(string iso)
         {
-            return DateTime.ParseExact(iso, "yyyy-MM-dd'T'HH:mm:ss.fff'Z'", CultureInfo.InvariantCulture);
+            return DateTime.ParseExact(iso, "yyyy-MM-dd'T'HH:mm:ss'Z'", CultureInfo.InvariantCulture);
         }
     }
 }
