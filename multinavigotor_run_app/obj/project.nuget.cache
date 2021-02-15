@@ -1,11 +1,23 @@
 {
   "version": 2,
-  "dgSpecHash": "RnoA1sfVpuj41l5B0Tw4C3L8YiShNO+yLBQ9IpDppXfvCM9AiLcVSIQ00pKTs5mWqPsqG4z3h+rv5brPwbnAeA==",
+  "dgSpecHash": "vjEyk3mD1K28cib4A4wVtnZ0Zq5UAaoUGtyH2b7ExPr0YRTd2D/cu/Y3j+Vwzpz4kNnutcKAcWi3c5Mm/98x7Q==",
   "success": true,
   "projectFilePath": "C:\\Users\\GuttiDani\\source\\repos\\multinavigotor_run_app\\multinavigotor_run_app\\multinavigotor_run_app.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\GuttiDani\\.nuget\\packages\\geolocation\\1.2.1\\geolocation.1.2.1.nupkg.sha512",
-    "C:\\Users\\GuttiDani\\.nuget\\packages\\newtonsoft.json\\12.0.3\\newtonsoft.json.12.0.3.nupkg.sha512"
+    "C:\\Users\\GuttiDani\\.nuget\\packages\\newtonsoft.json\\12.0.3\\newtonsoft.json.12.0.3.nupkg.sha512",
+    "C:\\Users\\GuttiDani\\.nuget\\packages\\system.linq.dynamic\\1.0.8\\system.linq.dynamic.1.0.8.nupkg.sha512"
   ],
-  "logs": []
+  "logs": [
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'System.Linq.Dynamic 1.0.8' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8' instead of the project target framework '.NETCoreApp,Version=v3.1'. This package may not be fully compatible with your project.",
+      "libraryId": "System.Linq.Dynamic",
+      "targetGraphs": [
+        ".NETCoreApp,Version=v3.1"
+      ]
+    }
+  ]
 }

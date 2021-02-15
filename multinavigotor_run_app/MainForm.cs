@@ -7,6 +7,7 @@ using System.Data;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Linq.Dynamic;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -16,6 +17,8 @@ namespace multinavigotor_run_app
 {
     public partial class MainForm : Form
     {
+        private bool sortAscending;
+
         public MainForm()
         {
             InitializeComponent();
@@ -63,14 +66,12 @@ namespace multinavigotor_run_app
             dataGridView1.DataSource = null;
             dataGridView1.DataSource = RunnerPersistency.runnersList;
             //RunnerPersistency.runnersList.Sort();
-            List<Runner> novekvo = new List<Runner>();
-            List<Runner> csokkeno = new List<Runner>();
-            novekvo = (List<Runner>)RunnerPersistency.runnersList.OrderBy(q => q.RunTime).ToList();
-            csokkeno = (List<Runner>)RunnerPersistency.runnersList.OrderByDescending(q => q.RunTime).ToList();
+            
+            
             //dataGridView1.DataSource = RunnerPersistency.runnersList.OrderBy(q => q.RunTime);
             //dataGridView1.DataSource = RunnerPersistency.runnersList.OrderByDescending(q => q.RunTime);
             //dataGridView1.Sort
-            dataGridView1.Refresh();
+            //dataGridView1.Refresh();
         }
 
         private void saveRunnertoJson_Click(object sender, EventArgs e)
@@ -85,6 +86,45 @@ namespace multinavigotor_run_app
                     sw.Write(JsonConvert.SerializeObject(RunnerPersistency.runnersList, Formatting.Indented));
                 }
             }
+        }
+
+        private void ascendingBtn_Click(object sender, EventArgs e)
+        {
+            dataGridView1.DataSource = null;
+            dataGridView1.DataSource = RunnerPersistency.runnersList.OrderBy(q => q.RunTime).ToList(); 
+        }
+
+        private void descendingBtn_Click(object sender, EventArgs e)
+        {
+            dataGridView1.DataSource = null;
+            dataGridView1.DataSource = RunnerPersistency.runnersList.OrderByDescending(q => q.RunTime).ToList();
+        }
+
+        private void load_race_btn_Click(object sender, EventArgs e)
+        {
+            //openFileDialogNewRunner
+        }
+
+        private void dataGridView1_Sorted(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dataGridView1_ColumnHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            if (sortAscending)
+            {
+                dataGridView1.DataSource = null;
+                dataGridView1.DataSource = RunnerPersistency.runnersList.OrderBy(q => q.RunTime).ToList();
+                //dataGridView1.DataSource = RunnerPersistency.runnersList.OrderBy(dataGridView1.Columns[e.ColumnIndex].DataPropertyName).ToList();
+            }
+            else
+            {
+                dataGridView1.DataSource = null;
+                dataGridView1.DataSource = RunnerPersistency.runnersList.OrderByDescending(q => q.RunTime).ToList();
+                //dataGridView1.DataSource = RunnerPersistency.runnersList.OrderBy(dataGridView1.Columns[e.ColumnIndex].DataPropertyName).Reverse().ToList();
+            }
+            sortAscending = !sortAscending;
         }
     }
 }

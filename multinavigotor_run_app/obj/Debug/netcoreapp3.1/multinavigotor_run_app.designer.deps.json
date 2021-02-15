@@ -21,6 +21,14 @@
             "fileVersion": "12.0.3.23909"
           }
         }
+      },
+      "System.Linq.Dynamic/1.0.8": {
+        "runtime": {
+          "lib/net40/System.Linq.Dynamic.dll": {
+            "assemblyVersion": "1.0.6132.35681",
+            "fileVersion": "1.0.6132.35681"
+          }
+        }
       }
     }
   },
@@ -38,6 +46,13 @@
       "sha512": "sha512-6mgjfnRB4jKMlzHSl+VD+oUc1IebOZabkbyWj2RiTgWwYPPuaK1H97G1sHqGwPlS5npiF5Q0OrxN1wni2n5QWg==",
       "path": "newtonsoft.json/12.0.3",
       "hashPath": "newtonsoft.json.12.0.3.nupkg.sha512"
+    },
+    "System.Linq.Dynamic/1.0.8": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-nh+3I/wcZcyQ4p8DKMhy/PH4sGKONrrGlx+eqpqrRTDHe6gyDTF5nK0AIXitDuzvtNTOkvpJWvPd0xdzEmlQjA==",
+      "path": "system.linq.dynamic/1.0.8",
+      "hashPath": "system.linq.dynamic.1.0.8.nupkg.sha512"
     }
   }
 }
