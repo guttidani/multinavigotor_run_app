@@ -42,6 +42,7 @@ namespace multinavigotor_run_app
             this.load_race_btn = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.refreshBtn = new System.Windows.Forms.Button();
+            this.saveRunnertoJson = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -52,17 +53,17 @@ namespace multinavigotor_run_app
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(139, 28);
+            this.dataGridView1.Location = new System.Drawing.Point(206, 28);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowTemplate.Height = 25;
-            this.dataGridView1.Size = new System.Drawing.Size(784, 565);
+            this.dataGridView1.Size = new System.Drawing.Size(717, 565);
             this.dataGridView1.TabIndex = 1;
             // 
             // treeView1
             // 
             this.treeView1.Location = new System.Drawing.Point(12, 28);
             this.treeView1.Name = "treeView1";
-            this.treeView1.Size = new System.Drawing.Size(121, 104);
+            this.treeView1.Size = new System.Drawing.Size(188, 225);
             this.treeView1.TabIndex = 2;
             // 
             // openFileDialogNewRunner
@@ -129,7 +130,7 @@ namespace multinavigotor_run_app
             // 
             // refreshBtn
             // 
-            this.refreshBtn.Location = new System.Drawing.Point(30, 138);
+            this.refreshBtn.Location = new System.Drawing.Point(12, 259);
             this.refreshBtn.Name = "refreshBtn";
             this.refreshBtn.Size = new System.Drawing.Size(75, 23);
             this.refreshBtn.TabIndex = 3;
@@ -137,11 +138,22 @@ namespace multinavigotor_run_app
             this.refreshBtn.UseVisualStyleBackColor = true;
             this.refreshBtn.Click += new System.EventHandler(this.refreshBtn_Click);
             // 
+            // saveRunnertoJson
+            // 
+            this.saveRunnertoJson.Location = new System.Drawing.Point(12, 288);
+            this.saveRunnertoJson.Name = "saveRunnertoJson";
+            this.saveRunnertoJson.Size = new System.Drawing.Size(75, 23);
+            this.saveRunnertoJson.TabIndex = 4;
+            this.saveRunnertoJson.Text = "Save Runners";
+            this.saveRunnertoJson.UseVisualStyleBackColor = true;
+            this.saveRunnertoJson.Click += new System.EventHandler(this.saveRunnertoJson_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(935, 605);
+            this.Controls.Add(this.saveRunnertoJson);
             this.Controls.Add(this.refreshBtn);
             this.Controls.Add(this.treeView1);
             this.Controls.Add(this.dataGridView1);
@@ -168,6 +180,7 @@ namespace multinavigotor_run_app
         private ToolStripMenuItem load_race_btn;
         private ToolStrip toolStrip1;
         private Button refreshBtn;
+        private Button saveRunnertoJson;
     }
 }
 

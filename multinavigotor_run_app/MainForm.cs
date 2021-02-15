@@ -1,4 +1,5 @@
 ﻿using multinavigotor_run_app.Persistency;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -59,11 +60,31 @@ namespace multinavigotor_run_app
 
         private void refreshBtn_Click(object sender, EventArgs e) //doesnt work
         {
+            dataGridView1.DataSource = null;
             dataGridView1.DataSource = RunnerPersistency.runnersList;
-            RunnerPersistency.runnersList.OrderBy(q => q.RunTime);
-            dataGridView1.EndEdit();
-            dataGridView1.Update();
+            //RunnerPersistency.runnersList.Sort();
+            List<Runner> novekvo = new List<Runner>();
+            List<Runner> csokkeno = new List<Runner>();
+            novekvo = (List<Runner>)RunnerPersistency.runnersList.OrderBy(q => q.RunTime).ToList();
+            csokkeno = (List<Runner>)RunnerPersistency.runnersList.OrderByDescending(q => q.RunTime).ToList();
+            //dataGridView1.DataSource = RunnerPersistency.runnersList.OrderBy(q => q.RunTime);
+            //dataGridView1.DataSource = RunnerPersistency.runnersList.OrderByDescending(q => q.RunTime);
+            //dataGridView1.Sort
             dataGridView1.Refresh();
+        }
+
+        private void saveRunnertoJson_Click(object sender, EventArgs e)
+        {
+            SaveFileDialog saveFileDialog1 = new SaveFileDialog();
+            saveFileDialog1.Filter = "JSON | *.json";
+            if (saveFileDialog1.ShowDialog() == DialogResult.OK)
+            {
+                using (Stream s = File.Open(saveFileDialog1.FileName, FileMode.CreateNew))
+                using (StreamWriter sw = new StreamWriter(s))
+                {
+                    sw.Write(JsonConvert.SerializeObject(RunnerPersistency.runnersList, Formatting.Indented));
+                }
+            }
         }
     }
 }

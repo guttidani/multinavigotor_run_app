@@ -19,3 +19,4 @@ C:\Users\GuttiDani\source\repos\multinavigotor_run_app\multinavigotor_run_app\ob
 C:\Users\GuttiDani\source\repos\multinavigotor_run_app\multinavigotor_run_app\obj\Debug\netcoreapp3.1\multinavigotor_run_app.MainForm.resources
 C:\Users\GuttiDani\source\repos\multinavigotor_run_app\multinavigotor_run_app\obj\Debug\netcoreapp3.1\multinavigotor_run_app.NewRaceForm.resources
 C:\Users\GuttiDani\source\repos\multinavigotor_run_app\multinavigotor_run_app\obj\Debug\netcoreapp3.1\multinavigotor_run_app.NewRunnerForm.resources
+C:\Users\GuttiDani\source\repos\multinavigotor_run_app\multinavigotor_run_app\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll
