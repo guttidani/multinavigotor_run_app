@@ -116,13 +116,11 @@ namespace multinavigotor_run_app
             {
                 dataGridView1.DataSource = null;
                 dataGridView1.DataSource = RunnerPersistency.runnersList.OrderBy(q => q.RunTime).ToList();
-                //dataGridView1.DataSource = RunnerPersistency.runnersList.OrderBy(dataGridView1.Columns[e.ColumnIndex].DataPropertyName).ToList();
             }
             else
             {
                 dataGridView1.DataSource = null;
                 dataGridView1.DataSource = RunnerPersistency.runnersList.OrderByDescending(q => q.RunTime).ToList();
-                //dataGridView1.DataSource = RunnerPersistency.runnersList.OrderBy(dataGridView1.Columns[e.ColumnIndex].DataPropertyName).Reverse().ToList();
             }
             sortAscending = !sortAscending;
         }

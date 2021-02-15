@@ -43,8 +43,6 @@ namespace multinavigotor_run_app
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.refreshBtn = new System.Windows.Forms.Button();
             this.saveRunnertoJson = new System.Windows.Forms.Button();
-            this.ascendingBtn = new System.Windows.Forms.Button();
-            this.descendingBtn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -153,40 +151,18 @@ namespace multinavigotor_run_app
             this.saveRunnertoJson.UseVisualStyleBackColor = true;
             this.saveRunnertoJson.Click += new System.EventHandler(this.saveRunnertoJson_Click);
             // 
-            // ascendingBtn
-            // 
-            this.ascendingBtn.Location = new System.Drawing.Point(125, 259);
-            this.ascendingBtn.Name = "ascendingBtn";
-            this.ascendingBtn.Size = new System.Drawing.Size(75, 23);
-            this.ascendingBtn.TabIndex = 5;
-            this.ascendingBtn.Text = "Növekvő";
-            this.ascendingBtn.UseVisualStyleBackColor = true;
-            this.ascendingBtn.Click += new System.EventHandler(this.ascendingBtn_Click);
-            // 
-            // descendingBtn
-            // 
-            this.descendingBtn.Location = new System.Drawing.Point(124, 287);
-            this.descendingBtn.Name = "descendingBtn";
-            this.descendingBtn.Size = new System.Drawing.Size(75, 23);
-            this.descendingBtn.TabIndex = 6;
-            this.descendingBtn.Text = "Csökkenő";
-            this.descendingBtn.UseVisualStyleBackColor = true;
-            this.descendingBtn.Click += new System.EventHandler(this.descendingBtn_Click);
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(935, 605);
-            this.Controls.Add(this.descendingBtn);
-            this.Controls.Add(this.ascendingBtn);
             this.Controls.Add(this.saveRunnertoJson);
             this.Controls.Add(this.refreshBtn);
             this.Controls.Add(this.treeView1);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.toolStrip1);
             this.Name = "MainForm";
-            this.Text = "Form1";
+            this.Text = "Multinavigátor verseny";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
@@ -208,8 +184,6 @@ namespace multinavigotor_run_app
         private ToolStrip toolStrip1;
         private Button refreshBtn;
         private Button saveRunnertoJson;
-        private Button ascendingBtn;
-        private Button descendingBtn;
     }
 }
 
