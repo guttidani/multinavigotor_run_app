@@ -78,8 +78,8 @@ namespace multinavigotor_run_app
                         Latitude = double.Parse(trkSeg.Latitude, System.Globalization.CultureInfo.InvariantCulture),
                         Longitude = double.Parse(trkSeg.Longitude, System.Globalization.CultureInfo.InvariantCulture),
                         Coordinate = new Coordinate(double.Parse(trkSeg.Latitude, System.Globalization.CultureInfo.InvariantCulture), double.Parse(trkSeg.Longitude, System.Globalization.CultureInfo.InvariantCulture)),
-                        Elevation = double.Parse(trkSeg.Elevation, System.Globalization.CultureInfo.InvariantCulture),
-                        Time = convertIsoToDateTime(trkSeg.Time)
+                        Elevation = Math.Round(double.Parse(trkSeg.Elevation, System.Globalization.CultureInfo.InvariantCulture)),
+                        Time = DateTime.Parse(trkSeg.Time)
                     };
                     tracksAsList.Add(trackDto);
                 }
@@ -87,14 +87,6 @@ namespace multinavigotor_run_app
             return tracksAsList; // Return as List
         }
 
-        /// <summary>
-        /// It is a string to DateTime converter (yyyy-MM-dd'T'HH:mm:ss'Z')
-        /// </summary>
-        /// <param name="iso">Time in string (yyyy-MM-dd'T'HH:mm:ss'Z')</param>
-        /// <returns>DateTime (yyyy-MM-dd'T'HH:mm:ss'Z') </returns>
-        public DateTime convertIsoToDateTime(string iso)
-        {
-            return DateTime.ParseExact(iso, "yyyy-MM-dd'T'HH:mm:ss'Z'", CultureInfo.InvariantCulture);
-        }
+        
     }
 }

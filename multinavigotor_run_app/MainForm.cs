@@ -65,12 +65,7 @@ namespace multinavigotor_run_app
         {
             dataGridView1.DataSource = null;
             dataGridView1.DataSource = RunnerPersistency.runnersList;
-            //RunnerPersistency.runnersList.Sort();
             
-            
-            //dataGridView1.DataSource = RunnerPersistency.runnersList.OrderBy(q => q.RunTime);
-            //dataGridView1.DataSource = RunnerPersistency.runnersList.OrderByDescending(q => q.RunTime);
-            //dataGridView1.Sort
             //dataGridView1.Refresh();
         }
 
@@ -86,18 +81,6 @@ namespace multinavigotor_run_app
                     sw.Write(JsonConvert.SerializeObject(RunnerPersistency.runnersList, Formatting.Indented));
                 }
             }
-        }
-
-        private void ascendingBtn_Click(object sender, EventArgs e)
-        {
-            dataGridView1.DataSource = null;
-            dataGridView1.DataSource = RunnerPersistency.runnersList.OrderBy(q => q.RunTime).ToList(); 
-        }
-
-        private void descendingBtn_Click(object sender, EventArgs e)
-        {
-            dataGridView1.DataSource = null;
-            dataGridView1.DataSource = RunnerPersistency.runnersList.OrderByDescending(q => q.RunTime).ToList();
         }
 
         private void load_race_btn_Click(object sender, EventArgs e)
