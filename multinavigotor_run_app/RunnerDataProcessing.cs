@@ -89,5 +89,17 @@ namespace multinavigotor_run_app
         {
             return Convert.ToDateTime((list.Last().Time - list.First().Time).ToString()).ToString("HH:mm:ss");
         }
+
+        public Gender getGender(string iso)
+        {
+            if (iso == "Man")
+            {
+                return Gender.Man;
+            }
+            else
+            {
+                return Gender.Woman;
+            }
+        }
     }
 }

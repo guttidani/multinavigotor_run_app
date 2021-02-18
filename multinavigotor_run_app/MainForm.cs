@@ -22,11 +22,7 @@ namespace multinavigotor_run_app
         public MainForm()
         {
             InitializeComponent();
-        }
-
-        private void saveFileDialog1_FileOk(object sender, CancelEventArgs e)
-        {
-
+            raceNameLabel.Text = null;
         }
 
         private void new_runner_btn_Click(object sender, EventArgs e)
@@ -65,32 +61,19 @@ namespace multinavigotor_run_app
         {
             dataGridView1.DataSource = null;
             dataGridView1.DataSource = RunnerPersistency.runnersList;
-            
-            //dataGridView1.Refresh();
-        }
-
-        private void saveRunnertoJson_Click(object sender, EventArgs e)
-        {
-            SaveFileDialog saveFileDialog1 = new SaveFileDialog();
-            saveFileDialog1.Filter = "JSON | *.json";
-            if (saveFileDialog1.ShowDialog() == DialogResult.OK)
-            {
-                using (Stream s = File.Open(saveFileDialog1.FileName, FileMode.CreateNew))
-                using (StreamWriter sw = new StreamWriter(s))
-                {
-                    sw.Write(JsonConvert.SerializeObject(RunnerPersistency.runnersList, Formatting.Indented));
-                }
-            }
+            raceNameLabel.Text = RacePersistency.RaceName;
+            //dataGridView1.Refresh(); it doesnt work :(
         }
 
         private void load_race_btn_Click(object sender, EventArgs e)
         {
-            //openFileDialogNewRunner
-        }
-
-        private void dataGridView1_Sorted(object sender, EventArgs e)
-        {
-
+            openFileDialog.Filter = "JSON |*.json";
+            openFileDialog.ShowDialog();
+            string jsonString = File.ReadAllText(openFileDialog.FileName);
+            Race race = new Race();
+            race = JsonConvert.DeserializeObject<Race>(jsonString);
+            RunnerPersistency.runnersList = race.Runners;
+            //need test!!!!!
         }
 
         private void dataGridView1_ColumnHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
@@ -106,6 +89,27 @@ namespace multinavigotor_run_app
                 dataGridView1.DataSource = RunnerPersistency.runnersList.OrderByDescending(q => q.RunTime).ToList();
             }
             sortAscending = !sortAscending;
+        }
+
+        private void save_race_btn_Click(object sender, EventArgs e)
+        {
+            SaveFileDialog saveFileDialog1 = new SaveFileDialog();
+            saveFileDialog1.Filter = "JSON | *.json";
+            Race race = new Race
+            {
+                RaceName = RacePersistency.RaceName,
+                DateofRunning = RacePersistency.DateofRace, 
+                Runners = RunnerPersistency.runnersList
+            };
+            
+            if (saveFileDialog1.ShowDialog() == DialogResult.OK)
+            {
+                using (Stream s = File.Open(saveFileDialog1.FileName, FileMode.CreateNew))
+                using (StreamWriter sw = new StreamWriter(s))
+                {
+                    sw.Write(JsonConvert.SerializeObject(race, Formatting.Indented));
+                }
+            }
         }
     }
 }

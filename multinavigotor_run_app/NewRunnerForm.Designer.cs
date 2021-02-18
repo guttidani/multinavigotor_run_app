@@ -29,44 +29,34 @@ namespace multinavigotor_run_app
         /// </summary>
         private void InitializeComponent()
         {
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.newRunnerBtn = new System.Windows.Forms.Button();
+            this.nameTxtb = new System.Windows.Forms.TextBox();
+            this.createRunnerBtn = new System.Windows.Forms.Button();
             this.openFileDialogNewRunner = new System.Windows.Forms.OpenFileDialog();
             this.backBtn = new System.Windows.Forms.Button();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.birthDateTxtb = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // textBox1
+            // nameTxtb
             // 
-            this.textBox1.Location = new System.Drawing.Point(161, 61);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(146, 23);
-            this.textBox1.TabIndex = 0;
+            this.nameTxtb.Location = new System.Drawing.Point(123, 37);
+            this.nameTxtb.Name = "nameTxtb";
+            this.nameTxtb.PlaceholderText = "Type the name here";
+            this.nameTxtb.Size = new System.Drawing.Size(146, 23);
+            this.nameTxtb.TabIndex = 0;
             // 
-            // textBox2
+            // createRunnerBtn
             // 
-            this.textBox2.Location = new System.Drawing.Point(161, 91);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(146, 23);
-            this.textBox2.TabIndex = 1;
-            // 
-            // textBox3
-            // 
-            this.textBox3.Location = new System.Drawing.Point(161, 121);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(146, 23);
-            this.textBox3.TabIndex = 2;
-            // 
-            // newRunnerBtn
-            // 
-            this.newRunnerBtn.Location = new System.Drawing.Point(198, 150);
-            this.newRunnerBtn.Name = "newRunnerBtn";
-            this.newRunnerBtn.Size = new System.Drawing.Size(109, 23);
-            this.newRunnerBtn.TabIndex = 3;
-            this.newRunnerBtn.Text = "New Runner";
-            this.newRunnerBtn.UseVisualStyleBackColor = true;
-            this.newRunnerBtn.Click += new System.EventHandler(this.button1_Click);
+            this.createRunnerBtn.Location = new System.Drawing.Point(44, 124);
+            this.createRunnerBtn.Name = "createRunnerBtn";
+            this.createRunnerBtn.Size = new System.Drawing.Size(132, 23);
+            this.createRunnerBtn.TabIndex = 3;
+            this.createRunnerBtn.Text = "Create New Runner";
+            this.createRunnerBtn.UseVisualStyleBackColor = true;
+            this.createRunnerBtn.Click += new System.EventHandler(this.button1_Click);
             // 
             // openFileDialogNewRunner
             // 
@@ -74,24 +64,73 @@ namespace multinavigotor_run_app
             // 
             // backBtn
             // 
-            this.backBtn.Location = new System.Drawing.Point(713, 415);
+            this.backBtn.Location = new System.Drawing.Point(198, 125);
             this.backBtn.Name = "backBtn";
-            this.backBtn.Size = new System.Drawing.Size(75, 23);
+            this.backBtn.Size = new System.Drawing.Size(71, 22);
             this.backBtn.TabIndex = 4;
             this.backBtn.Text = "Back";
             this.backBtn.UseVisualStyleBackColor = true;
             this.backBtn.Click += new System.EventHandler(this.backBtn_Click);
             // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Items.AddRange(new object[] {
+            "Man",
+            "Woman"});
+            this.comboBox1.Location = new System.Drawing.Point(123, 66);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(146, 23);
+            this.comboBox1.TabIndex = 5;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(44, 37);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(39, 15);
+            this.label1.TabIndex = 6;
+            this.label1.Text = "Name";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(44, 66);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(45, 15);
+            this.label2.TabIndex = 7;
+            this.label2.Text = "Gender";
+            // 
+            // birthDateTxtb
+            // 
+            this.birthDateTxtb.Location = new System.Drawing.Point(123, 95);
+            this.birthDateTxtb.Name = "birthDateTxtb";
+            this.birthDateTxtb.PlaceholderText = "yyyy-mm-dd";
+            this.birthDateTxtb.Size = new System.Drawing.Size(146, 23);
+            this.birthDateTxtb.TabIndex = 8;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(44, 95);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(59, 15);
+            this.label3.TabIndex = 9;
+            this.label3.Text = "Birth Date";
+            // 
             // NewRunnerForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(306, 174);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.birthDateTxtb);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.backBtn);
-            this.Controls.Add(this.newRunnerBtn);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.createRunnerBtn);
+            this.Controls.Add(this.nameTxtb);
             this.Name = "NewRunnerForm";
             this.Text = "NewRunnerForm";
             this.ResumeLayout(false);
@@ -101,11 +140,14 @@ namespace multinavigotor_run_app
 
         #endregion
 
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.Button newRunnerBtn;
+        private System.Windows.Forms.TextBox nameTxtb;
+        private System.Windows.Forms.Button createRunnerBtn;
         private System.Windows.Forms.OpenFileDialog openFileDialogNewRunner;
         private System.Windows.Forms.Button backBtn;
+        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox birthDateTxtb;
+        private System.Windows.Forms.Label label3;
     }
 }
