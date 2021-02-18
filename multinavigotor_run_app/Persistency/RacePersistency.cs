@@ -7,7 +7,6 @@ namespace multinavigotor_run_app.Persistency
     class RacePersistency
     {
         public static string RaceName;
-        public static bool IsMan;
         public static DateTime DateofRace;
     }
 }

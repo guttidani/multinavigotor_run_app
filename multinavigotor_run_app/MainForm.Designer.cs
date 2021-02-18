@@ -142,9 +142,8 @@ namespace multinavigotor_run_app
             this.raceNameLabel.AutoSize = true;
             this.raceNameLabel.Location = new System.Drawing.Point(428, 7);
             this.raceNameLabel.Name = "raceNameLabel";
-            this.raceNameLabel.Size = new System.Drawing.Size(38, 15);
+            this.raceNameLabel.Size = new System.Drawing.Size(0, 15);
             this.raceNameLabel.TabIndex = 4;
-            this.raceNameLabel.Text = "label1";
             // 
             // MainForm
             // 

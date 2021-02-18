@@ -23,7 +23,6 @@ namespace multinavigotor_run_app
         public List<Runner> RunnersList()
         {
             List<Runner> runnersList = new List<Runner>();
-
             return runnersList;
         }
     }

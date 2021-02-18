@@ -27,28 +27,15 @@ namespace multinavigotor_run_app
 
         private void new_runner_btn_Click(object sender, EventArgs e)
         {
-            //GPXLoader gpxLoad = new GPXLoader();
-            //RunnerDataProcessing rdp = new RunnerDataProcessing();
-            //openFileDialogNewRunner.Filter = "GPX |*.gpx";
-            //openFileDialogNewRunner.ShowDialog();
-            //string fileName = openFileDialogNewRunner.FileName;
-            //List<TrackDto> tracks = gpxLoad.LoadGPXTracks(fileName);
-
-            //Runner runner = new Runner
-            //{
-            //    Name = rdp.getNameFromFileName(Path.GetFileName(fileName)),
-            //    DateofRunning = tracks.First().Time.Date,
-            //    RunTime = rdp.RunningTimeCount(tracks),
-            //    ElevationUp = Math.Round(rdp.ElevationUp(tracks)),
-            //    ElevationDown = Math.Round(rdp.ElevationDown(tracks)),
-            //    Distance = Math.Round((rdp.CountDistance(tracks) / 1000),2)
-            //};
-
-            //RunnerPersistency.runnersList.Add(runner);
-            //dataGridView1.DataSource = RunnerPersistency.runnersList;
-
-            NewRunnerForm nRunnerForm = new NewRunnerForm();
-            nRunnerForm.Show();
+            if (raceNameLabel.Text.Length == 0)
+            {
+                MessageBox.Show("Please create a new race! ☻");
+            }
+            else
+            {
+                NewRunnerForm nRunnerForm = new NewRunnerForm();
+                nRunnerForm.Show();
+            }
         }
 
         private void new_race_btn_Click(object sender, EventArgs e)
@@ -98,10 +85,10 @@ namespace multinavigotor_run_app
             Race race = new Race
             {
                 RaceName = RacePersistency.RaceName,
-                DateofRunning = RacePersistency.DateofRace, 
+                DateofRunning = RacePersistency.DateofRace,
                 Runners = RunnerPersistency.runnersList
             };
-            
+
             if (saveFileDialog1.ShowDialog() == DialogResult.OK)
             {
                 using (Stream s = File.Open(saveFileDialog1.FileName, FileMode.CreateNew))

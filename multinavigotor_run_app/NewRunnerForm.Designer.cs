@@ -29,6 +29,7 @@ namespace multinavigotor_run_app
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(NewRunnerForm));
             this.nameTxtb = new System.Windows.Forms.TextBox();
             this.createRunnerBtn = new System.Windows.Forms.Button();
             this.openFileDialogNewRunner = new System.Windows.Forms.OpenFileDialog();
@@ -131,8 +132,9 @@ namespace multinavigotor_run_app
             this.Controls.Add(this.backBtn);
             this.Controls.Add(this.createRunnerBtn);
             this.Controls.Add(this.nameTxtb);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "NewRunnerForm";
-            this.Text = "NewRunnerForm";
+            this.Text = "New runner";
             this.ResumeLayout(false);
             this.PerformLayout();
 

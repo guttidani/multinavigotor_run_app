@@ -20,21 +20,12 @@ namespace multinavigotor_run_app
         {
             if (RaceNameTxtbox.Text.Length == 0)
             {
-                MessageBox.Show("Pleas don't let the fields empty");
+                MessageBox.Show("Please don't let the fields empty! ☻");
             }
             else
             {
                 RacePersistency.RaceName = RaceNameTxtbox.Text;
                 RacePersistency.DateofRace = DateTime.Parse(monthCalendar1.SelectionRange.Start.ToString());
-
-                if (manRBtn.Checked == true)
-                {
-                    RacePersistency.IsMan = true;
-                }
-                else if (womanRBtn.Checked == true)
-                {
-                    RacePersistency.IsMan = false;
-                }
                 MessageBox.Show("Race created: {0}", RacePersistency.RaceName);
                 this.Close();
             }

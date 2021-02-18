@@ -23,7 +23,7 @@ namespace multinavigotor_run_app
         {
             if (nameTxtb.Text.Length == 0 || comboBox1.SelectedItem == null || birthDateTxtb.Text.Length == 0)
             {
-                MessageBox.Show("Pleas don't let the fields empty");
+                MessageBox.Show("Please don't let the fields empty! ☻");
             }
             else
             {
