@@ -9,6 +9,7 @@ namespace multinavigotor_run_app
         Man,
         Woman
     }
+
     class Runner
     {
         public String Name { get; set; }

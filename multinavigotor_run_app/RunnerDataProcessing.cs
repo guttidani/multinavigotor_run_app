@@ -18,9 +18,9 @@ namespace multinavigotor_run_app
 
             for (int i = 1; i < list.Count; i++)
             {
-                distance += GeoCalculator.GetDistance(list[i - 1].Coordinate, list[i].Coordinate, distanceUnit: DistanceUnit.Meters); //mindig 0át ad vissza
+                distance += GeoCalculator.GetDistance(list[i - 1].Coordinate, list[i].Coordinate, distanceUnit: DistanceUnit.Meters);
             }
-            
+
             return distance;
         }
 
@@ -100,6 +100,13 @@ namespace multinavigotor_run_app
             {
                 return Gender.Woman;
             }
+        }
+
+        public DateTime countAge(DateTime birth)
+        {
+            DateTime now = DateTime.Now;
+            
+            return Convert.ToDateTime((now - birth).ToString()); 
         }
     }
 }

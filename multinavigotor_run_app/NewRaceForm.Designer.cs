@@ -79,6 +79,7 @@ namespace multinavigotor_run_app
             this.Controls.Add(this.RaceNameTxtbox);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "NewRaceForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "New race";
             this.ResumeLayout(false);
             this.PerformLayout();

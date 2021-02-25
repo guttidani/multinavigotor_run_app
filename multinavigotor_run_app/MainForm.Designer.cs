@@ -31,7 +31,6 @@ namespace multinavigotor_run_app
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.treeView1 = new System.Windows.Forms.TreeView();
             this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
@@ -43,22 +42,14 @@ namespace multinavigotor_run_app
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.refreshBtn = new System.Windows.Forms.Button();
             this.raceNameLabel = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.searchName = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.searchBtn = new System.Windows.Forms.Button();
+            this.genderBox = new System.Windows.Forms.ComboBox();
+            this.datagridview1 = new ADGV.AdvancedDataGridView();
             this.toolStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.datagridview1)).BeginInit();
             this.SuspendLayout();
-            // 
-            // dataGridView1
-            // 
-            this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(206, 28);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowTemplate.Height = 25;
-            this.dataGridView1.Size = new System.Drawing.Size(922, 670);
-            this.dataGridView1.TabIndex = 1;
-            this.dataGridView1.ColumnHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView1_ColumnHeaderMouseClick);
             // 
             // treeView1
             // 
@@ -145,30 +136,86 @@ namespace multinavigotor_run_app
             this.raceNameLabel.Size = new System.Drawing.Size(0, 15);
             this.raceNameLabel.TabIndex = 4;
             // 
+            // searchName
+            // 
+            this.searchName.Location = new System.Drawing.Point(56, 288);
+            this.searchName.Name = "searchName";
+            this.searchName.Size = new System.Drawing.Size(144, 23);
+            this.searchName.TabIndex = 5;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(11, 295);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(39, 15);
+            this.label1.TabIndex = 6;
+            this.label1.Text = "Name";
+            // 
+            // searchBtn
+            // 
+            this.searchBtn.Location = new System.Drawing.Point(125, 346);
+            this.searchBtn.Name = "searchBtn";
+            this.searchBtn.Size = new System.Drawing.Size(75, 23);
+            this.searchBtn.TabIndex = 7;
+            this.searchBtn.Text = "Search";
+            this.searchBtn.UseVisualStyleBackColor = true;
+            // 
+            // genderBox
+            // 
+            this.genderBox.FormattingEnabled = true;
+            this.genderBox.Items.AddRange(new object[] {
+            "Man",
+            "Woman",
+            "Null"});
+            this.genderBox.Location = new System.Drawing.Point(56, 317);
+            this.genderBox.Name = "genderBox";
+            this.genderBox.Size = new System.Drawing.Size(144, 23);
+            this.genderBox.TabIndex = 8;
+            // 
+            // datagridview1
+            // 
+            this.datagridview1.AllowUserToOrderColumns = true;
+            this.datagridview1.AutoGenerateContextFilters = true;
+            this.datagridview1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.datagridview1.DateWithTime = false;
+            this.datagridview1.Location = new System.Drawing.Point(206, 28);
+            this.datagridview1.Name = "datagridview1";
+            this.datagridview1.RowTemplate.Height = 25;
+            this.datagridview1.Size = new System.Drawing.Size(922, 670);
+            this.datagridview1.TabIndex = 9;
+            this.datagridview1.TimeFilter = false;
+            this.datagridview1.SortStringChanged += new System.EventHandler(this.datagridview1_SortStringChanged);
+            this.datagridview1.FilterStringChanged += new System.EventHandler(this.datagridview1_FilterStringChanged);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.ClientSize = new System.Drawing.Size(1140, 710);
+            this.Controls.Add(this.datagridview1);
+            this.Controls.Add(this.genderBox);
+            this.Controls.Add(this.searchBtn);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.searchName);
             this.Controls.Add(this.raceNameLabel);
             this.Controls.Add(this.refreshBtn);
             this.Controls.Add(this.treeView1);
-            this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.toolStrip1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "MainForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Multinavigátor verseny";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.datagridview1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-        private DataGridView dataGridView1;
         private TreeView treeView1;
         private OpenFileDialog openFileDialog;
         private SaveFileDialog saveFileDialog1;
@@ -180,6 +227,11 @@ namespace multinavigotor_run_app
         private ToolStrip toolStrip1;
         private Button refreshBtn;
         private Label raceNameLabel;
+        private TextBox searchName;
+        private Label label1;
+        private Button searchBtn;
+        private ComboBox genderBox;
+        private ADGV.AdvancedDataGridView datagridview1;
     }
 }
 

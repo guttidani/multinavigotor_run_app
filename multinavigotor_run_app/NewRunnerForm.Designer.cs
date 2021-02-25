@@ -134,6 +134,7 @@ namespace multinavigotor_run_app
             this.Controls.Add(this.nameTxtb);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "NewRunnerForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "New runner";
             this.ResumeLayout(false);
             this.PerformLayout();

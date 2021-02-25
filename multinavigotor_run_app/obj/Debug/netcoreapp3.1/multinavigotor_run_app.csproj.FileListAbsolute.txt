@@ -12,7 +12,6 @@ C:\Users\GuttiDani\source\repos\multinavigotor_run_app\multinavigotor_run_app\ob
 C:\Users\GuttiDani\source\repos\multinavigotor_run_app\multinavigotor_run_app\obj\Debug\netcoreapp3.1\multinavigotor_run_app.dll
 C:\Users\GuttiDani\source\repos\multinavigotor_run_app\multinavigotor_run_app\obj\Debug\netcoreapp3.1\multinavigotor_run_app.pdb
 C:\Users\GuttiDani\source\repos\multinavigotor_run_app\multinavigotor_run_app\obj\Debug\netcoreapp3.1\multinavigotor_run_app.genruntimeconfig.cache
-C:\Users\GuttiDani\source\repos\multinavigotor_run_app\multinavigotor_run_app\bin\Debug\netcoreapp3.1\trackek\Csoboth_attila_2020-08-15-13-30-56_Gesztes.gpx
 C:\Users\GuttiDani\source\repos\multinavigotor_run_app\multinavigotor_run_app\bin\Debug\netcoreapp3.1\trackek\csobot_ati_test.gpx
 C:\Users\GuttiDani\source\repos\multinavigotor_run_app\multinavigotor_run_app\bin\Debug\netcoreapp3.1\Geolocation.dll
 C:\Users\GuttiDani\source\repos\multinavigotor_run_app\multinavigotor_run_app\obj\Debug\netcoreapp3.1\multinavigotor_run_app.csproj.CopyComplete
@@ -21,3 +20,6 @@ C:\Users\GuttiDani\source\repos\multinavigotor_run_app\multinavigotor_run_app\ob
 C:\Users\GuttiDani\source\repos\multinavigotor_run_app\multinavigotor_run_app\obj\Debug\netcoreapp3.1\multinavigotor_run_app.NewRunnerForm.resources
 C:\Users\GuttiDani\source\repos\multinavigotor_run_app\multinavigotor_run_app\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll
 C:\Users\GuttiDani\source\repos\multinavigotor_run_app\multinavigotor_run_app\bin\Debug\netcoreapp3.1\System.Linq.Dynamic.dll
+C:\Users\GuttiDani\source\repos\multinavigotor_run_app\multinavigotor_run_app\bin\Debug\netcoreapp3.1\AdvancedDataGridView.dll
+C:\Users\GuttiDani\source\repos\multinavigotor_run_app\multinavigotor_run_app\bin\Debug\netcoreapp3.1\fr\AdvancedDataGridView.resources.dll
+C:\Users\GuttiDani\source\repos\multinavigotor_run_app\multinavigotor_run_app\bin\Debug\netcoreapp3.1\ru\AdvancedDataGridView.resources.dll
